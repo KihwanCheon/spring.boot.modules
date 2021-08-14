@@ -1,0 +1,12 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+subprojects {
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter-amqp:${springBootVersion}")
+    }
+
+}
+

@@ -1,0 +1,6 @@
+rootProject.name = 'spring.modules'
+include ':rabbitMq'
+include ':rabbitMq:publisher'
+include ':rabbitMq:listener'
+include ':rabbitMq:common'
+

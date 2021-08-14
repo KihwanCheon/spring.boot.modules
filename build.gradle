@@ -1,0 +1,44 @@
+
+ext {
+    springBootVersion = '2.2.9.RELEASE'
+    springDataJdbcVersion = '2.0.1.RELEASE'
+    springDataCommonsVersion = '2.3.1.RELEASE'
+    springDataRelationalVersion = '2.0.1.RELEASE'
+    springDataNeo4jVersion = '5.3.1.RELEASE'
+    springBootAdminVersion = '2.3.0'
+    lombokVersion = '1.18.12'
+
+    junitVersion = '5.6.0'
+}
+
+
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+
+    repositories {
+        mavenCentral()
+    }
+
+    group 'org.example'
+    version '1.0-SNAPSHOT'
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
+        testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    sourceCompatibility = "11"
+    targetCompatibility = "11"
+}
+
+
+

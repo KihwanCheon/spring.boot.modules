@@ -1,0 +1,12 @@
+plugins {
+    id 'application'
+}
+
+application {
+    mainClassName = "example.App"
+}
+
+dependencies {
+    compile project(":rabbitMq:common")
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+}

@@ -1,0 +1,11 @@
+
+# rabbitmq
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: root
+  password: pass
+
+logging:
+  level:
+    root: DEBUG

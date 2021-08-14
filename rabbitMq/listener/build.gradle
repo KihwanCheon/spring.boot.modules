@@ -1,0 +1,11 @@
+plugins {
+    id "application"
+}
+
+application {
+    mainClassName = "example.App"
+}
+
+dependencies {
+    compile project(":rabbitMq:common")
+}
