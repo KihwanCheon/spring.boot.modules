@@ -28,7 +28,6 @@ public class PublishController {
     }
     @GetMapping(value = "topic/{id}/{message}")
     Object topic(@PathVariable int id, @PathVariable String message) {
-
         if (id == 1) {
             rabbit.convertAndSend(Topic.Topic1, T1, message);
         } else {
