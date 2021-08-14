@@ -1,6 +1,7 @@
 package example;
 
 public interface ExchangeNames {
+
     interface Topic {
         String Topic1 = "T_topic1";
         String Topic2 = "T_topic2";

@@ -15,6 +15,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import static example.ExchangeNames.*;
+import static example.ExchangeNames.Fanout.RoutingKey.F1;
 
 /**
  * https://docs.spring.io/spring-amqp/reference/html/#meta-annotation-driven
@@ -26,9 +27,9 @@ public class FanoutListener {
     @Target({ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
     @Retention(RetentionPolicy.RUNTIME)
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue,
+            value = @Queue, key = F1,
             exchange = @Exchange(value = Fanout.Fanout1, type = ExchangeTypes.FANOUT)))
-    public @interface Fanout1Listener {
+    public @interface Fanout1ListenBinding {
     }
 
     @Target({ElementType.TYPE, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
@@ -36,25 +37,25 @@ public class FanoutListener {
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue,
             exchange = @Exchange(value = Fanout.Fanout2, type = ExchangeTypes.FANOUT)))
-    public @interface Fanout2Listener {
+    public @interface Fanout2ListenBinding {
     }
 
-    @Fanout1Listener
+    @Fanout1ListenBinding
     public void fanout1_1(String message) {
         log.info("fanout1_1 message: {}", message);
     }
 
-    @Fanout1Listener
+    @Fanout1ListenBinding
     public void fanout1_2(String message) {
         log.info("fanout1_2 message: {}", message);
     }
 
-    @Fanout2Listener
+    @Fanout2ListenBinding
     public void fanout2_1(String message) {
         log.info("fanout2_1 message: {}", message);
     }
 
-    @Fanout2Listener
+    @Fanout2ListenBinding
     public void fanout2_2(String message) {
         log.info("fanout2_2 message: {}", message);
     }
