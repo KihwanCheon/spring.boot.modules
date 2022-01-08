@@ -1,9 +1,10 @@
 package example.controller;
 
 import example.QueueNames;
-import org.springframework.amqp.core.Message;
+import lombok.Value;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.SimpleMessageConverter;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,14 +49,24 @@ public class PublishController {
         return true;
     }
 
-    @GetMapping(value = "headers/{message}")
-    Object headers(@PathVariable String message) {
+    @Value
+    static class Req {
+        String color;
+        Integer width;
+    }
+
+    @GetMapping(value = "headers")
+    Object headers(Req req) {
         MessageProperties messageProperties = new MessageProperties();
-        messageProperties.setHeader("h1", "h2");
-        rabbit.convertAndSend(Headers.Header1, new Message(message.getBytes(), messageProperties));
-        rabbit.convertAndSend(Headers.Header1, new Message(message.getBytes(), messageProperties));
-        rabbit.convertAndSend(Headers.Header2, new Message(message.getBytes(), messageProperties));
-        rabbit.convertAndSend(Headers.Header2, new Message(message.getBytes(), messageProperties));
+        if (req.color != null)
+            messageProperties.setHeader("color", req.color);
+        if (req.width != null)
+            messageProperties.setHeader("width", req.width);
+
+        var msg = new SimpleMessageConverter().toMessage("", messageProperties);
+
+        rabbit.convertAndSend(Headers.Header1, "", msg);
+        rabbit.convertAndSend(Headers.Header2, "", msg);
         return true;
     }
 

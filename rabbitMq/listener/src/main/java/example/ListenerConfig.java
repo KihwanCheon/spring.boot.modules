@@ -21,9 +21,8 @@ public class ListenerConfig extends  CommonConfig {
         HeadersExchange header2 = new HeadersExchange(ExchangeNames.Headers.Header2, true, false, arguments);
 
         return new Declarables(
-                header1Queue, header2Queue,
-                BindingBuilder.bind(header1Queue).to(header1).whereAll("h1", "h2").exist(),
-                BindingBuilder.bind(header2Queue).to(header2).where("h1").exists()
+                BindingBuilder.bind(header1Queue).to(header1).whereAll("color", "width").exist(),
+                BindingBuilder.bind(header2Queue).to(header2).whereAny("color", "width").exist()
         );
     }
 }
