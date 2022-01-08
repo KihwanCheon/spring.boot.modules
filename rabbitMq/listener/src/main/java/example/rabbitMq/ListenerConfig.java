@@ -1,14 +1,12 @@
-package example;
-
+package example.rabbitMq;
 
 import org.springframework.amqp.core.*;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
-public class ListenerConfig extends  CommonConfig {
+public class ListenerConfig extends CommonConfig {
 
     @Bean Queue header1Queue() { return new Queue(QueueNames.Headers1, false, false, false, arguments); }
     @Bean Queue header2Queue() { return new Queue(QueueNames.Headers2, false, false, false, arguments); }

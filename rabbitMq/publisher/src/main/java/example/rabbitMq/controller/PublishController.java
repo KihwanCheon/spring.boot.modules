@@ -1,6 +1,6 @@
-package example.controller;
+package example.rabbitMq.controller;
 
-import example.QueueNames;
+import example.rabbitMq.QueueNames;
 import lombok.Value;
 import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-import static example.ExchangeNames.*;
-import static example.ExchangeNames.Fanout.RoutingKey.*;
-import static example.ExchangeNames.Topic.RoutingKey.*;
+import static example.rabbitMq.ExchangeNames.*;
+import static example.rabbitMq.ExchangeNames.Fanout.RoutingKey.*;
+import static example.rabbitMq.ExchangeNames.Topic.RoutingKey.*;
 
 @RestController
 @RequestMapping("pub")

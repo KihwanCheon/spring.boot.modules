@@ -2,3 +2,8 @@ plugins {
     id 'java'
 }
 
+archivesBaseName = 'rabbitMq.' + project.name
+
+dependencies {
+    compile project(":util")
+}

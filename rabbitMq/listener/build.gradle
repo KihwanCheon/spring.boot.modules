@@ -2,8 +2,10 @@ plugins {
     id "application"
 }
 
+archivesBaseName = 'rabbitMq.' + project.name
+
 application {
-    mainClassName = "example.App"
+    mainClassName = "example.rabbitMq.ListenerApp"
 }
 
 dependencies {

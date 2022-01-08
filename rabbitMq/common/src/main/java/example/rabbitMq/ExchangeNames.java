@@ -1,4 +1,4 @@
-package example;
+package example.rabbitMq;
 
 public interface ExchangeNames {
 

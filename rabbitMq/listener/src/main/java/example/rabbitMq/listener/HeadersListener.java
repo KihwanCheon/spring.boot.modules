@@ -1,9 +1,8 @@
-package example.listener.rabbit;
+package example.rabbitMq.listener;
 
-import example.QueueNames;
+import example.rabbitMq.QueueNames;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 

@@ -1,5 +1,6 @@
-package example;
+package example.rabbitMq;
 
+import example.YamlPropertySourceFactory;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -7,7 +8,6 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
-
 import java.util.Map;
 
 @PropertySource(value = "classpath:/common.yml", factory = YamlPropertySourceFactory.class)

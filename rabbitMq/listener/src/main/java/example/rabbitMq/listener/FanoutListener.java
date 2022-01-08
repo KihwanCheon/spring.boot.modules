@@ -1,5 +1,4 @@
-package example.listener.rabbit;
-
+package example.rabbitMq.listener;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;
@@ -8,14 +7,13 @@ import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static example.ExchangeNames.*;
-import static example.ExchangeNames.Fanout.RoutingKey.F1;
+import static example.rabbitMq.ExchangeNames.*;
+import static example.rabbitMq.ExchangeNames.Fanout.RoutingKey.F1;
 
 /**
  * https://docs.spring.io/spring-amqp/reference/html/#meta-annotation-driven
