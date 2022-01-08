@@ -11,15 +11,15 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 public class ListenerConfig extends CommonConfig {
 
     @Bean
-    MessageListenerAdapter messageListener(RedisMessageSubscriber redisMessageSubscriber) {
-        return new MessageListenerAdapter(redisMessageSubscriber);
+    MessageListenerAdapter messageListenerAdapter(RedisMessageSubscriber subscriber) {
+        return new MessageListenerAdapter(subscriber);
     }
 
     @Bean
-    RedisMessageListenerContainer redisContainer(RedisConnectionFactory connectionFactory, RedisMessageSubscriber subscriber) {
+    RedisMessageListenerContainer redisContainer(RedisConnectionFactory connectionFactory, MessageListenerAdapter adaptor) {
         RedisMessageListenerContainer container = new RedisMessageListenerContainer();
         container.setConnectionFactory(connectionFactory);
-        container.addMessageListener(messageListener(subscriber), topic());
+        container.addMessageListener(adaptor, topic());
         return container;
     }
 }
