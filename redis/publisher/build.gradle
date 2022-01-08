@@ -1,0 +1,14 @@
+plugins {
+    id 'application'
+}
+
+archivesBaseName = 'redis.' + project.name
+
+application {
+    mainClassName = "example.redis.PublisherApp"
+}
+
+dependencies {
+    compile project(":redis:common")
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+}

@@ -1,0 +1,13 @@
+plugins {
+    id "application"
+}
+
+archivesBaseName = 'redis.' + project.name
+
+application {
+    mainClassName = "example.redis.ListenerApp"
+}
+
+dependencies {
+    compile project(":redis:common")
+}

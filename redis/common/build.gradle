@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+archivesBaseName = 'redis.' + project.name
+
+dependencies {
+    compile project(":util")
+}

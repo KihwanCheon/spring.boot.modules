@@ -1,0 +1,6 @@
+
+# spring config
+
+logging:
+  level:
+    root: INFO
