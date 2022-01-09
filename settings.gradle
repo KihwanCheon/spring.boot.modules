@@ -12,3 +12,9 @@ include ':redis:publisher'
 include ':redis:listener'
 include ':redis:common'
 
+include ':kafka'
+include ':kafka:publisher'
+include ':kafka:listener'
+include ':kafka:common'
+
+

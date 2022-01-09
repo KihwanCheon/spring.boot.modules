@@ -1,0 +1,14 @@
+plugins {
+    id 'application'
+}
+
+archivesBaseName = 'kafka.' + project.name
+
+application {
+    mainClassName = "example.kafka.PublisherApp"
+}
+
+dependencies {
+    compile project(":kafka:common")
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+}

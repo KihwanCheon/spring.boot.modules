@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+subprojects {
+    dependencies {
+        implementation("org.springframework.boot:spring-boot-starter:${springBootVersion}")
+        implementation("org.springframework.boot:spring-boot-starter-json:${springBootVersion}")
+        implementation("org.springframework.kafka:spring-kafka:${springKafkaVersion}")
+        testImplementation("org.springframework.kafka:spring-kafka-test:${springKafkaVersion}")
+    }
+}
+

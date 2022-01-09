@@ -1,0 +1,13 @@
+plugins {
+    id "application"
+}
+
+archivesBaseName = 'kafka.' + project.name
+
+application {
+    mainClassName = "example.kafka.ListenerApp"
+}
+
+dependencies {
+    compile project(":kafka:common")
+}

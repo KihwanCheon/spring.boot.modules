@@ -1,0 +1,9 @@
+plugins {
+    id 'java'
+}
+
+archivesBaseName = 'kafka.' + project.name
+
+dependencies {
+    compile project(":util")
+}
